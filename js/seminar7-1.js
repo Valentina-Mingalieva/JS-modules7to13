@@ -37,7 +37,7 @@ currentElements.forEach(el => {
 
 // 3. Create a list of 3 random images. List should be enumerated.
 
-const images = [
+/* const images = [
     'https://i.picsum.photos/id/952/200/200.jpg?hmac=6jMF0yOT214qb0hW6aUyexMo9flTRxyQbV8jYPcVolM',
     'https://i.picsum.photos/id/658/200/200.jpg?hmac=f24wxXCkgtH72eZ6mY95KRxTyvEG-_3ysR9z-R0a1QM',
     'https://i.picsum.photos/id/230/200/200.jpg?hmac=8tI9ISupCMivMI7f7Q6i24FcYAg812XUEYJFZtaXp_8'
@@ -55,7 +55,7 @@ for(const image of images) {
     imageTag.src = image;
 }
 
-document.body.appendChild(ol);
+document.body.appendChild(ol); */
 
 // 4. Merge two list in one without dublicates
 
@@ -75,18 +75,39 @@ lisFiltered.forEach(el => merged.appendChild(el));
 document.body.innerHTML = '';
 document.body.appendChild(merged);
 
+// ODER
+
+// Решить задачу за list1.length + list2.length O(n+k) итераций;
+// Сейчас работает за list1.length*list2.length O((n+k)^2)
+
+const [list1, list2] = document.querySelectorAll('ol');
+
+const uniquelist = new Set(); // O(1)
+list1.querySelectorAll('li').forEach(el => {
+  uniquelist.add(el.firstElementChild.getAttribute('src'));
+});
+
+list2.querySelectorAll('li').forEach(el => {
+  if (!uniquelist.has(el.firstElementChild.getAttribute('src'))) {
+    list1.appendChild(el.cloneNode(true));
+  }
+});
+
+document.body.innerHTML = '';
+document.body.appendChild(list1);
+
 // 5. Set class 'red-score' to score under 10, set class 'green-score' to other score
 
- const table = document.querySelector('table');
+const table = document.querySelector('table');
 
- const lines = table.querySelectorAll('td');
- lines.forEach(line => {
-     const innerInt = parseInt(line.innerText);
-     if( !isNaN(innerInt)) {
-         if(innerInt < 10) {
+const lines = table.querySelectorAll('td');
+lines.forEach(line => {
+    const innerInt = parseInt(line.innerText);
+    if( !isNaN(innerInt)) {
+        if(innerInt < 10) {
             line.classList.add('red-score');
-         } else {
+        } else {
             line.classList.add('green-score');
-         }
-     }
- })
+        }
+    }
+})
