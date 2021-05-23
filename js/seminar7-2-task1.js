@@ -1,6 +1,6 @@
 // 1. Create email field validation after pressing Enter. Prevent closing window.
 
-/* const input = document.querySelector("#email-input");
+const input = document.querySelector("#email-input");
 const error = document.querySelector("#error-text");
 
 input.addEventListener("keypress", e => {
@@ -15,4 +15,4 @@ input.addEventListener("keypress", e => {
 
 window.onbeforeunload = function () {
     return "Are you sure?";
-}; */
+};
