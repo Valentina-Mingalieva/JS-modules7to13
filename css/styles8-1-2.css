@@ -1,0 +1,17 @@
+.card {
+  border: 1px solid black;
+  display: flex;
+}
+
+.card_focus {
+  background-color: burlywood;
+}
+
+.card__delete {
+  border: 1px solid black;
+  background-color: red;
+  align-self: start;
+  display: inline-block;
+  margin-right: 4px;
+  cursor: pointer;
+}

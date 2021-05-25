@@ -87,13 +87,5 @@ function populateList(markup) {
 }
 
 // lazy loading concept
+// https://github.com/luxplanjay/js-22/tree/08-2-lazy-load
 
-const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-
-lazyImages.forEach(image => {
-    image.addEventListener("load", onImageLoaded, { once: true });
-});
-
-function onImageLoaded(e) {
-    e.target.classList.add("appear");
-}

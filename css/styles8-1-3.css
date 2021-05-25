@@ -1,0 +1,11 @@
+.tree__sub-tree {
+  display: none;
+}
+
+.tree__sub-tree_open {
+  display: block;
+}
+
+.tree__item {
+  cursor: pointer;
+}
