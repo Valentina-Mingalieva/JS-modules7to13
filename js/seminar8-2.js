@@ -1,20 +1,22 @@
-// 1. Create infinity scroll of countries
-
 let handlerCallCount = 0;
 let startIndex = 0;
 const COUNTRY_SEGMENT_COUNT = 20;
-
 const listRef = document.querySelector('.country-list');
+const searchRef = document.querySelector('.search');
+const anchorRef = document.querySelector('.anchor');
+
+// 1. Create infinity scroll of countries
 
 function scrollHandler() {
   console.log(++handlerCallCount);
-  if (!isScrollToBottom()) return;
-
-  renderPartOfCountries();
-
-  if (startIndex >= countries.length) {
-    window.removeEventListener('scroll', scrollHandler);
-  }
+    if (isScrollToBottom()) {
+      
+        renderPartOfCountries();
+      
+        if (startIndex >= countries.length) {
+          window.removeEventListener('scroll', scrollHandler);
+        }
+    }
 }
 
 window.addEventListener('scroll', scrollHandler);
@@ -40,11 +42,7 @@ function renderPartOfCountries() {
 }
 renderPartOfCountries();
 
-/* // 2. Create country search
-
-const listRef = document.querySelector('.country-list');
-
-const searchRef = document.querySelector('.search');
+// 2. Create country search
 
 searchRef.addEventListener('input', _.debounce(handleInput, 500));
 
@@ -66,22 +64,9 @@ function renderFilteredCountries(filteredCountries) {
   listRef.append(...countryRefs);
 }
 
-function createCountryRef(country) {
-  const countryRef = document.createElement('h2');
-  countryRef.classList.add('country');
-  countryRef.textContent = country;
-  return countryRef;
-}
-
 renderFilteredCountries(countries);
 
 // 3. Create infinity scroll of countries with IntersectionObserver
-
-let startIndex = 0;
-const COUNTRY_COUNT = 10;
-
-const listRef = document.querySelector('.country-list');
-const anchorRef = document.querySelector('.anchor');
 
 const observer = new IntersectionObserver(observerCallback, {
   threshold: 0,
@@ -89,8 +74,8 @@ const observer = new IntersectionObserver(observerCallback, {
 
 observer.observe(anchorRef);
 
-function observerCallback([entrie], observerRef) {
-  if (!entrie.isIntersecting) return;
+function observerCallback([entry], observerRef) {
+  if (!entry.isIntersecting) return;
 
   renderPartOfCountries();
 
@@ -99,23 +84,4 @@ function observerCallback([entrie], observerRef) {
   }
 }
 
-function createCountryRef(country) {
-  const countryRef = document.createElement('h2');
-  countryRef.classList.add('country');
-  countryRef.textContent = country;
-  return countryRef;
-}
-
-function renderPartOfCountries() {
-  const partOfCountries = countries.slice(
-    startIndex,
-    startIndex + COUNTRY_COUNT,
-  );
-  const contryRefs = partOfCountries.map(createCountryRef);
-
-  listRef.append(...contryRefs);
-
-  startIndex += COUNTRY_COUNT;
-}
-
-renderPartOfCountries(); */
+renderPartOfCountries();
