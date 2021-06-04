@@ -1,1 +1,1 @@
-# JS-modules7to13
+# JS-modules 7 and 8
