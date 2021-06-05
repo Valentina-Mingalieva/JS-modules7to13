@@ -1,0 +1,27 @@
+{
+  "name": "JS-modules7to8",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Valentina-Mingalieva/JS-modules7to8.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Valentina-Mingalieva/JS-modules7to8/issues"
+  },
+  "homepage": "https://github.com/Valentina-Mingalieva/JS-modules7to8#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-handlebars-precompile": "^1.0.2"
+  },
+  "dependencies": {
+    "lodash.throttle": "^4.1.1"
+  }
+}
